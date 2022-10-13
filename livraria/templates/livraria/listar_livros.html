@@ -1,0 +1,40 @@
+{% extends 'livraria/base.html' %}
+
+{% block conteudo %}
+{% if user.is_authenticated %}
+    <h3>Olá {{user.username}}</h3>
+    <a class="btn btn-danger" href="{% url 'logout_usuario' %}">Sair</a>
+{% else %}
+    <p>Você precisa realiar o login</p>
+{% endif %}
+<table class="table">
+    <h1>Lista de Livros</h1><br>
+        {% for livro in livros %}
+        <tr>
+            <td>
+                <h3 class="card-title">{{ livro.nome }}</h3><br/>
+                <a href="{% url 'detalhar_livro' id=livro.id %}">
+                    <img height="300" width="200" src="{{ livro.imagem.url }}">
+                </a>
+                <h5>Valor: {{ livro.valor }}</h5>
+                <h6>Código: {{ livro.codigo }}<br/>
+                Ano: {{ livro.ano }}<br/>
+                Autores:
+                {% for nome in livro.autor.all %}
+                    {{ nome }} <br/>
+                    {% endfor %} </h6>
+                    <br>
+            </td>
+            {% if user.is_authenticated %}
+            <td>
+                <a class="btn btn-default" href="{% url 'editar_livro' id=livro.id %}">
+                    <button type="button" class="btn btn-danger">Editar</button>
+                </a>
+            </td>
+            {% endif %}
+            </tr>  
+        {% endfor %}
+    </table>
+{% endblock %}
+            
+        

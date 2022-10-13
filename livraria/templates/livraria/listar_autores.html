@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Django Livraria</title>
+    </head>
+    <body>
+        <h3>Lista dos nossos Autores</h3>    
+        {% for autor in autores %}
+            {{autor.nome}}   
+        {% endfor %} 
+    </body>
+</html>

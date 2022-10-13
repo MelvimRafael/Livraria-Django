@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Django Livraria</title>
+    </head>
+    <body>
+        <h3>Lista das nossas Categorias</h3>
+        
+        {% for categoria in categorias %}
+        
+            {{categoria.nome}}
+            
+        {% endfor %}
+    
+    </body>
+</html>

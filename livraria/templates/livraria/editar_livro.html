@@ -1,0 +1,12 @@
+{% extends 'livraria/base.html' %}
+
+{% block conteudo %}
+    <h2>Novo livro</h2>
+    <form method="POST" class="table" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+         </div>
+        <button type="submit" class="btn btn-success save btn btn-default">Salvar</button>
+    </form>
+{% endblock %}

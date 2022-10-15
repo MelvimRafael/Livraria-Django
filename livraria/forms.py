@@ -10,7 +10,7 @@ class LivroForm(forms.ModelForm):
 
         widgets = {
             'nome': forms.TextInput(attrs={ 'class': 'form-control', 
-                                            'placeholder':'Redes de Computadores'}),
+                                            'placeholder':'Nome livro'}),
             'autor': forms.SelectMultiple(attrs={ 'class': 'form-control'}),
             'categoria': forms.Select(attrs={ 'class': 'form-control'}),
             'codigo': forms.TextInput(attrs={ 'class': 'form-control'}),
